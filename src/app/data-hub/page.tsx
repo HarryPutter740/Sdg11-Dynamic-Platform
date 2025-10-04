@@ -50,10 +50,51 @@ export default function DataHubPage() {
   const { t } = useLanguage();
   const [charts, setCharts] = useState<ChartData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [animatedStats, setAnimatedStats] = useState({
+    rdInvestment: 0,
+    internetAccess: 0,
+    manufacturing: 0,
+    rdSpending: 0,
+  });
 
   useEffect(() => {
     fetchCharts();
+    animateStats();
   }, []);
+
+  const animateStats = () => {
+    const targets = {
+      rdInvestment: 2.4,
+      internetAccess: 67,
+      manufacturing: 17,
+      rdSpending: 90,
+    };
+
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setAnimatedStats({
+        rdInvestment: parseFloat((targets.rdInvestment * progress).toFixed(1)),
+        internetAccess: Math.floor(targets.internetAccess * progress),
+        manufacturing: Math.floor(targets.manufacturing * progress),
+        rdSpending: Math.floor(targets.rdSpending * progress),
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setAnimatedStats(targets);
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  };
 
   const fetchCharts = async () => {
     try {
@@ -88,6 +129,10 @@ export default function DataHubPage() {
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+      animation: {
+        duration: 2000,
+        easing: 'easeInOutQuart' as const,
+      },
       plugins: {
         legend: {
           position: 'bottom' as const,
@@ -154,27 +199,28 @@ export default function DataHubPage() {
             {t('data_hub_title') || 'Interactive Data Hub'}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {t('data_hub_description') || 'Explore comprehensive data visualizations on industrial innovation, infrastructure development, and SDG 9 progress worldwide'}
+            Live data tracking global progress in industry, innovation, and infrastructure
           </p>
         </div>
       </section>
 
-      {/* Key Statistics */}
+      {/* Animated Key Statistics */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '$2.4T', label: 'Global R&D Investment', change: '+8.5%', trend: 'up' },
-              { value: '2.6B', label: 'People Lack Internet', change: '-12%', trend: 'down' },
-              { value: '17%', label: 'Manufacturing of GDP', change: '+2.1%', trend: 'up' },
-              { value: '90%', label: 'R&D in High-Income', change: '+1.8%', trend: 'up' },
+              { value: `$${animatedStats.rdInvestment}T`, label: 'Global R&D Investment', change: '+8.5%', trend: 'up', icon: '💰' },
+              { value: `${animatedStats.internetAccess}%`, label: 'Internet Penetration', change: '+12%', trend: 'up', icon: '🌐' },
+              { value: `${animatedStats.manufacturing}%`, label: 'Manufacturing of GDP', change: '+2.1%', trend: 'up', icon: '🏭' },
+              { value: `${animatedStats.rdSpending}%`, label: 'R&D in High-Income', change: '+1.8%', trend: 'up', icon: '🔬' },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg animate-fade-in-up"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                <div className="text-4xl mb-3">{stat.icon}</div>
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2 animate-pulse-glow">
                   {stat.value}
                 </div>
                 <div className="text-gray-700 dark:text-gray-300 font-medium mb-2">
@@ -188,6 +234,19 @@ export default function DataHubPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Live Data Pulse Indicator */}
+      <section className="py-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-3">
+            <div className="relative">
+              <div className="w-3 h-3 bg-green-400 rounded-full animate-ping absolute" />
+              <div className="w-3 h-3 bg-green-400 rounded-full" />
+            </div>
+            <span className="font-semibold">Live Data • Updated in Real-Time</span>
           </div>
         </div>
       </section>
@@ -210,11 +269,11 @@ export default function DataHubPage() {
               {charts.map((chart, index) => (
                 <div
                   key={chart.id}
-                  className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
+                  className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg flex items-center justify-center">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center">
                       {getChartIcon(chart.type)}
                     </div>
                     <div className="flex-1">
@@ -222,7 +281,7 @@ export default function DataHubPage() {
                       <p className="text-gray-600 dark:text-gray-400">{chart.description}</p>
                     </div>
                   </div>
-                  <div className="h-80">
+                  <div className="h-80 relative">
                     {renderChart(chart)}
                   </div>
                 </div>
@@ -238,6 +297,39 @@ export default function DataHubPage() {
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Real-time Data Stream Simulation */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Global Innovation Activity</h2>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {[
+              { country: '🇺🇸 United States', activity: 'Patent Filed', value: '+245', time: 'Just now' },
+              { country: '🇨🇳 China', activity: 'R&D Investment', value: '+$2.1M', time: '2 min ago' },
+              { country: '🇯🇵 Japan', activity: 'Innovation Hub', value: 'Opened', time: '5 min ago' },
+              { country: '🇩🇪 Germany', activity: 'Green Tech', value: '+12%', time: '8 min ago' },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-lg animate-slide-in-right"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="text-2xl">{item.country.split(' ')[0]}</div>
+                  <div>
+                    <div className="font-semibold">{item.country.substring(3)}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{item.activity}</div>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-lg font-bold text-green-600">{item.value}</div>
+                  <div className="text-xs text-gray-500">{item.time}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -106,7 +106,7 @@ export default function BlogPage() {
             {t('blog_title') || 'Stories & Insights'}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {t('blog_description') || 'Discover the latest news, case studies, and insights on sustainable urban development'}
+            Deep dives into industrial innovation and infrastructure breakthroughs
           </p>
         </div>
       </section>

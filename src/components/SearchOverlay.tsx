@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { Search, X, FileText, Image as ImageIcon, BookOpen, BarChart3 } from 'lucide-react';
+import { Search, X, FileText, Image as ImageIcon, BookOpen, BarChart3, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -14,12 +14,22 @@ interface SearchResult {
   category?: string;
 }
 
+const languages = [
+  { code: 'EN', name: 'English', flag: '🇬🇧' },
+  { code: 'ES', name: 'Español', flag: '🇪🇸' },
+  { code: 'FR', name: 'Français', flag: '🇫🇷' },
+  { code: 'DE', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ZH', name: '中文', flag: '🇨🇳' },
+  { code: 'AR', name: 'العربية', flag: '🇸🇦' },
+];
+
 export default function SearchOverlay() {
-  const { t } = useLanguage();
+  const { t, language: currentLang, changeLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
+  const [showLanguages, setShowLanguages] = useState(false);
 
   // Open search with keyboard shortcut (Cmd+K or Ctrl+K)
   useEffect(() => {
@@ -45,6 +55,7 @@ export default function SearchOverlay() {
       document.body.style.overflow = 'unset';
       setQuery('');
       setResults([]);
+      setShowLanguages(false);
     }
   }, [isOpen]);
 
@@ -96,6 +107,11 @@ export default function SearchOverlay() {
     setIsOpen(false);
   };
 
+  const handleLanguageChange = (code: string) => {
+    changeLanguage(code);
+    setShowLanguages(false);
+  };
+
   if (!isOpen) {
     return (
       <button
@@ -105,9 +121,6 @@ export default function SearchOverlay() {
       >
         <Search className="w-5 h-5" />
         <span className="hidden sm:inline text-gray-600 dark:text-gray-400">Search</span>
-        <kbd className="hidden sm:inline px-2 py-1 text-xs bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded">
-          ⌘K
-        </kbd>
       </button>
     );
   }
@@ -135,6 +148,14 @@ export default function SearchOverlay() {
             aria-label="Search input"
           />
           <button
+            onClick={() => setShowLanguages(!showLanguages)}
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            aria-label="Change language"
+            title="Change language"
+          >
+            <Globe className="w-5 h-5" />
+          </button>
+          <button
             onClick={() => setIsOpen(false)}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
             aria-label="Close search"
@@ -143,11 +164,33 @@ export default function SearchOverlay() {
           </button>
         </div>
 
+        {/* Language Selector */}
+        {showLanguages && (
+          <div className="px-6 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
+            <div className="grid grid-cols-3 gap-2">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => handleLanguageChange(lang.code)}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${
+                    currentLang === lang.code
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  <span className="text-lg">{lang.flag}</span>
+                  <span className="text-sm font-medium">{lang.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Search Results */}
         <div className="max-h-[60vh] overflow-y-auto">
           {loading && (
             <div className="flex items-center justify-center py-12">
-              <div className="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin" />
+              <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
             </div>
           )}
 
@@ -173,7 +216,7 @@ export default function SearchOverlay() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors truncate">
+                      <h3 className="font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
                         {result.title}
                       </h3>
                       {result.category && (
@@ -201,8 +244,9 @@ export default function SearchOverlay() {
               <p className="mb-4 font-semibold">Quick tips:</p>
               <ul className="space-y-2">
                 <li>• Type at least 2 characters to search</li>
-                <li>• Use keywords like "urban", "sustainability", "housing"</li>
+                <li>• Use keywords like "infrastructure", "innovation", "manufacturing"</li>
                 <li>• Press ESC to close or ⌘K to open search</li>
+                <li>• Click <Globe className="inline w-4 h-4" /> to change language</li>
               </ul>
             </div>
           )}
@@ -220,7 +264,7 @@ export default function SearchOverlay() {
               to close
             </span>
           </div>
-          <span>Powered by SDG 9 Search</span>
+          <span>Powered by Optivio</span>
         </div>
       </div>
     </div>

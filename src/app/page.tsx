@@ -24,21 +24,37 @@ export default function Home() {
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  const facts = [
+  const allFacts = [
     t('dyk_fact1') || 'Manufacturing accounts for nearly 17% of global GDP and is critical for economic growth in developing countries.',
     t('dyk_fact2') || 'Over 2.6 billion people worldwide still lack access to reliable internet connectivity, limiting opportunities for innovation.',
     t('dyk_fact3') || 'Investment in research and development must increase to 3% of GDP in least developed countries to drive sustainable innovation.',
+    'Global investment in R&D reached $2.4 trillion in 2023, with the majority concentrated in high-income countries.',
+    'Over 90% of researchers worldwide are concentrated in high-income countries, highlighting the innovation gap.',
+    'The manufacturing sector employs over 1.3 billion people globally, representing 14% of total employment.',
+    'By 2030, over 5 billion people could have access to the Internet, transforming education and economic opportunities.',
+    'Sustainable infrastructure investments could generate $4.2 trillion in economic benefits by 2030.',
   ];
+
+  // Randomize facts on component mount
+  const [facts, setFacts] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Shuffle facts array on mount
+    const shuffled = [...allFacts].sort(() => Math.random() - 0.5);
+    setFacts(shuffled.slice(0, 5)); // Show 5 random facts
+  }, []);
 
   useEffect(() => {
     fetchStoryCards();
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFactIndex((prev) => (prev + 1) % facts.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    if (facts.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentFactIndex((prev) => (prev + 1) % facts.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
   }, [facts.length]);
 
   const fetchStoryCards = async () => {
@@ -193,7 +209,7 @@ export default function Home() {
                   className={`group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up ${
                     card.size === 'large' ? 'sm:col-span-2 sm:row-span-2' : 
                     card.size === 'medium' ? 'sm:col-span-2' : ''
-                  }`}
+                  } ${card.category === 'video' ? 'cursor-pointer' : ''}`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Background Image */}
@@ -202,7 +218,11 @@ export default function Home() {
                       src={card.backgroundImage}
                       alt={card.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className={`object-cover transition-all duration-500 ${
+                        card.category === 'video' 
+                          ? 'group-hover:scale-110 group-hover:rotate-1' 
+                          : 'group-hover:scale-110'
+                      }`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   </div>
@@ -244,8 +264,8 @@ export default function Home() {
                   {/* Video Play Icon for Video Cards */}
                   {card.category === 'video' && (
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-8 h-8 text-white ml-1" />
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-125 group-hover:bg-white/30 transition-all duration-300">
+                        <Play className="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform" />
                       </div>
                     </div>
                   )}

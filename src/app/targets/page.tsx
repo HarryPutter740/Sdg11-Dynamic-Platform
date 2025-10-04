@@ -1,7 +1,8 @@
 "use client";
 
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 const targets = [
   {
@@ -56,19 +57,59 @@ const targets = [
 
 const timelineItems = [
   {
-    year: 'BY 2020',
+    year: '2020',
+    status: 'completed',
     title: 'Universal Internet Access',
     description: 'Provide universal and affordable access to the Internet in least developed countries.',
+    progress: 85,
   },
   {
-    year: 'BY 2030',
+    year: '2025',
+    status: 'in-progress',
+    title: 'Enhanced R&D Investment',
+    description: 'Increase research and development workers per million people and enhance innovation capabilities.',
+    progress: 60,
+  },
+  {
+    year: '2030',
+    status: 'upcoming',
     title: 'Double Industrial Share',
     description: 'Significantly raise industry\'s share of employment and GDP in least developed countries.',
+    progress: 40,
   },
   {
-    year: 'BY 2030',
+    year: '2030',
+    status: 'upcoming',
     title: 'Sustainable Infrastructure',
     description: 'Upgrade infrastructure and retrofit industries for sustainability with clean technologies.',
+    progress: 35,
+  },
+];
+
+const coreObjectives = [
+  {
+    icon: '🏗️',
+    title: 'Quality Infrastructure',
+    description: 'Develop reliable, sustainable and resilient infrastructure to support economic development and human well-being.',
+    link: '/objectives/infrastructure',
+  },
+  {
+    icon: '🏭',
+    title: 'Sustainable Industry',
+    description: 'Promote inclusive and sustainable industrialization with increased employment and GDP share.',
+    link: '/objectives/industry',
+  },
+  {
+    icon: '💡',
+    title: 'Foster Innovation',
+    description: 'Enhance scientific research and upgrade technological capabilities across all sectors.',
+    link: '/objectives/innovation',
+  },
+  {
+    icon: '🌐',
+    title: 'Universal Connectivity',
+    description: 'Increase access to ICT and provide universal and affordable Internet access globally.',
+    link: '/objectives/connectivity',
   },
 ];
 
@@ -88,7 +129,7 @@ export default function TargetsPage() {
               {t('targets_hero_title') || 'SDG 9: Detailed Targets'}
             </h1>
             <p className="text-xl sm:text-2xl text-gray-200 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              {t('targets_hero_subtitle') || 'A closer look at the specific goals for industry, innovation and infrastructure development'}
+              Eight clear goals driving infrastructure, industry, and innovation forward by 2030
             </p>
           </div>
         </div>
@@ -137,92 +178,128 @@ export default function TargetsPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Modern Timeline Section */}
       <section className="py-16 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            A Roadmap to 2030
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
+            Roadmap to 2030
           </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-600 to-indigo-600 hidden md:block" />
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+            Track our progress towards achieving sustainable industry, innovation, and infrastructure goals
+          </p>
+          
+          <div className="max-w-5xl mx-auto">
+            {timelineItems.map((item, index) => (
+              <div
+                key={index}
+                className="relative mb-12 last:mb-0 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Timeline connector line */}
+                {index !== timelineItems.length - 1 && (
+                  <div className="absolute left-8 top-20 w-1 h-full bg-gradient-to-b from-blue-600 to-indigo-600 hidden md:block" />
+                )}
 
-              {/* Timeline Items */}
-              {timelineItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`relative mb-12 ${
-                    index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:text-left'
-                  } animate-fade-in-up`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white dark:bg-gray-900 border-4 border-blue-600 rounded-full hidden md:block z-10" />
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  {/* Year badge */}
+                  <div className="flex-shrink-0">
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-lg shadow-lg ${
+                      item.status === 'completed' ? 'bg-green-600 text-white' :
+                      item.status === 'in-progress' ? 'bg-blue-600 text-white' :
+                      'bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    }`}>
+                      {item.year}
+                    </div>
+                  </div>
 
-                  {/* Content Card */}
-                  <div className={`inline-block ${index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
-                    <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-                      <span className="inline-block px-4 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-bold rounded-full mb-3">
-                        {item.year}
+                  {/* Content card */}
+                  <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                            {item.title}
+                          </h3>
+                          {item.status === 'completed' && (
+                            <CheckCircle2 className="w-6 h-6 text-green-600" />
+                          )}
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-300">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="mt-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                          Progress
+                        </span>
+                        <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                          {item.progress}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full transition-all duration-1000 ${
+                            item.status === 'completed' ? 'bg-green-600' :
+                            item.status === 'in-progress' ? 'bg-blue-600' :
+                            'bg-gray-400'
+                          }`}
+                          style={{ width: `${item.progress}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Status badge */}
+                    <div className="mt-4">
+                      <span className={`inline-block px-4 py-1 rounded-full text-xs font-semibold ${
+                        item.status === 'completed' ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' :
+                        item.status === 'in-progress' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
+                        'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                      }`}>
+                        {item.status === 'completed' ? 'Completed' :
+                         item.status === 'in-progress' ? 'In Progress' :
+                         'Upcoming'}
                       </span>
-                      <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300">
-                        {item.description}
-                      </p>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Key Objectives */}
+      {/* Core Objectives - Now with Links */}
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
             Core Objectives
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: '🏗️',
-                title: 'Quality Infrastructure',
-                description: 'Develop reliable, sustainable and resilient infrastructure to support economic development and human well-being.',
-              },
-              {
-                icon: '🏭',
-                title: 'Sustainable Industry',
-                description: 'Promote inclusive and sustainable industrialization with increased employment and GDP share.',
-              },
-              {
-                icon: '💡',
-                title: 'Foster Innovation',
-                description: 'Enhance scientific research and upgrade technological capabilities across all sectors.',
-              },
-              {
-                icon: '🌐',
-                title: 'Universal Connectivity',
-                description: 'Increase access to ICT and provide universal and affordable Internet access globally.',
-              },
-            ].map((objective, index) => (
-              <div
+            {coreObjectives.map((objective, index) => (
+              <Link
                 key={index}
-                className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 animate-fade-in-up"
+                href={objective.link}
+                className="group text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-6xl mb-4">{objective.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
+                  {objective.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {objective.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {objective.description}
                 </p>
-              </div>
+                <div className="flex items-center justify-center gap-2 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-3 transition-all">
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -238,18 +315,18 @@ export default function TargetsPage() {
             Every innovation matters in building sustainable infrastructure. Discover how you can contribute to achieving these goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/gallery"
+            <Link
+              href="/success-stories"
               className="px-8 py-3 bg-white text-blue-900 hover:bg-gray-100 font-semibold rounded-lg transition-colors"
             >
               See Success Stories
-            </a>
-            <a
+            </Link>
+            <Link
               href="/blog"
               className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white/10 text-white font-semibold rounded-lg transition-colors"
             >
               Read Our Blog
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -39,10 +39,10 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center font-bold text-white text-xl group-hover:scale-105 transition-transform">
-                09
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center font-bold text-white text-sm group-hover:scale-105 transition-transform">
+                <span className="text-center leading-tight">OPT</span>
               </div>
-              <span className="font-bold text-xl hidden sm:inline">SDG 9</span>
+              <span className="font-bold text-xl hidden sm:inline">Optivio</span>
             </Link>
 
             {/* Desktop Navigation */}

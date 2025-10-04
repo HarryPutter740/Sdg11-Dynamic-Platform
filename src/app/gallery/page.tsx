@@ -159,7 +159,7 @@ export default function GalleryPage() {
             {t('gallery_title') || 'SDG 9 Gallery'}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {t('gallery_description') || 'Explore inspiring visuals of industrial innovation and infrastructure development from around the world'}
+            Visual stories of innovation transforming infrastructure worldwide
           </p>
         </div>
       </section>
