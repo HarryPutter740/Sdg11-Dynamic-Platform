@@ -25,7 +25,7 @@ export default function GalleryPage() {
   const [currentImage, setCurrentImage] = useState<GalleryImage | null>(null);
   const [shareMenuOpen, setShareMenuOpen] = useState(false);
 
-  const categories = ['all', 'nature', 'transport', 'architecture', 'housing', 'community'];
+  const categories = ['all', 'infrastructure', 'technology', 'innovation', 'manufacturing'];
   const limit = 9;
 
   useEffect(() => {
@@ -153,13 +153,13 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
-            {t('gallery_title') || 'SDG 11 Gallery'}
+            {t('gallery_title') || 'SDG 9 Gallery'}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {t('gallery_description') || 'Explore inspiring visuals of sustainable urban development from around the world'}
+            {t('gallery_description') || 'Explore inspiring visuals of industrial innovation and infrastructure development from around the world'}
           </p>
         </div>
       </section>

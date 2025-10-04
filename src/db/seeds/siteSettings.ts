@@ -4,30 +4,30 @@ import { siteSettings } from '@/db/schema';
 async function main() {
     const currentTimestamp = new Date().toISOString();
     
-    const sampleSiteSettings = [
+    const sampleSettings = [
         {
             key: 'site_title',
-            value: 'SDG 11: Sustainable Cities and Communities',
+            value: 'SDG 09: Industry, Innovation and Infrastructure',
             updatedAt: currentTimestamp,
         },
         {
             key: 'site_description',
-            value: 'A comprehensive platform dedicated to promoting sustainable urban development and building inclusive, safe, resilient communities worldwide.',
-            updatedAt: currentTimestamp,
-        },
-        {
-            key: 'admin_email',
-            value: 'admin@sdg11cities.org',
-            updatedAt: currentTimestamp,
-        },
-        {
-            key: 'contact_email',
-            value: 'contact@sdg11cities.org',
+            value: 'Advancing sustainable industrial development through innovation and resilient infrastructure. Join our global platform dedicated to fostering inclusive and sustainable industrialization, promoting technological advancement, and building robust infrastructure for economic growth and social progress.',
             updatedAt: currentTimestamp,
         },
         {
             key: 'site_url',
-            value: 'https://sdg11cities.org',
+            value: 'https://sdg09innovation.org',
+            updatedAt: currentTimestamp,
+        },
+        {
+            key: 'admin_email',
+            value: 'admin@sdg09innovation.org',
+            updatedAt: currentTimestamp,
+        },
+        {
+            key: 'contact_email',
+            value: 'contact@sdg09innovation.org',
             updatedAt: currentTimestamp,
         },
         {
@@ -57,22 +57,17 @@ async function main() {
         },
         {
             key: 'social_twitter',
-            value: '@SDG11Cities',
+            value: '@SDG09Innovation',
             updatedAt: currentTimestamp,
         },
         {
             key: 'social_linkedin',
-            value: 'company/sdg11cities',
+            value: 'company/sdg09innovation',
             updatedAt: currentTimestamp,
         },
         {
             key: 'social_youtube',
-            value: 'channel/sdg11cities',
-            updatedAt: currentTimestamp,
-        },
-        {
-            key: 'analytics_id',
-            value: 'G-XXXXXXXXXX',
+            value: 'channel/sdg09innovation',
             updatedAt: currentTimestamp,
         },
         {
@@ -101,13 +96,18 @@ async function main() {
             updatedAt: currentTimestamp,
         },
         {
+            key: 'analytics_id',
+            value: 'G-XXXXXXXXXX',
+            updatedAt: currentTimestamp,
+        },
+        {
             key: 'cache_duration',
             value: '3600',
             updatedAt: currentTimestamp,
         }
     ];
 
-    await db.insert(siteSettings).values(sampleSiteSettings);
+    await db.insert(siteSettings).values(sampleSettings);
     
     console.log('✅ Site settings seeder completed successfully');
 }

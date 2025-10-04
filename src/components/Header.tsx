@@ -39,10 +39,10 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xl group-hover:scale-105 transition-transform">
-                11
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center font-bold text-white text-xl group-hover:scale-105 transition-transform">
+                09
               </div>
-              <span className="font-bold text-xl hidden sm:inline">SDG 11</span>
+              <span className="font-bold text-xl hidden sm:inline">SDG 9</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -51,9 +51,9 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-medium transition-colors hover:text-green-600 dark:hover:text-green-400 ${
+                  className={`font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
                     pathname === item.href
-                      ? 'text-green-600 dark:text-green-400'
+                      ? 'text-blue-600 dark:text-blue-400'
                       : 'text-gray-700 dark:text-gray-200'
                   }`}
                   aria-current={pathname === item.href ? 'page' : undefined}
@@ -110,7 +110,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block py-3 px-4 font-medium transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg ${
                     pathname === item.href
-                      ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                       : 'text-gray-700 dark:text-gray-200'
                   }`}
                   role="menuitem"

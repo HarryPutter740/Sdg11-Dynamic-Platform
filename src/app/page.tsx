@@ -25,9 +25,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   const facts = [
-    t('dyk_fact1') || 'Cities consume over two-thirds of the world\'s energy and account for more than 70% of global CO2 emissions.',
-    t('dyk_fact2') || 'By 2050, the world\'s urban population is expected to nearly double, making sustainable urbanization a critical global priority.',
-    t('dyk_fact3') || 'Over 1 billion people live in slums, and this number is projected to rise without significant intervention in housing policies.',
+    t('dyk_fact1') || 'Manufacturing accounts for nearly 17% of global GDP and is critical for economic growth in developing countries.',
+    t('dyk_fact2') || 'Over 2.6 billion people worldwide still lack access to reliable internet connectivity, limiting opportunities for innovation.',
+    t('dyk_fact3') || 'Investment in research and development must increase to 3% of GDP in least developed countries to drive sustainable innovation.',
   ];
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://videos.pexels.com/video-files/2882566/2882566-hd_1920_1080_25fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay */}
@@ -92,14 +92,14 @@ export default function Home() {
         
         {/* Hero Content */}
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <span className="inline-block text-green-400 font-semibold text-lg mb-4 animate-fade-in-up">
-            The Future is Urban
+          <span className="inline-block text-blue-400 font-semibold text-lg mb-4 animate-fade-in-up">
+            Innovation Drives Progress
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Building the Sustainable Cities of Tomorrow
+            Building Resilient Infrastructure for the Future
           </h1>
           <p className="text-xl sm:text-2xl text-gray-200 mb-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            {t('hero_description') || 'Creating inclusive, safe, resilient and sustainable urban spaces for everyone'}
+            {t('hero_description') || 'Promoting inclusive and sustainable industrialization, fostering innovation, and building resilient infrastructure'}
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export default function Home() {
       </section>
 
       {/* Did You Know Section */}
-      <section className="py-16 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900" id="main-content">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900" id="main-content">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
             {t('dyk_title') || 'Did You Know?'}
@@ -142,7 +142,7 @@ export default function Home() {
                   onClick={() => setCurrentFactIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentFactIndex 
-                      ? 'bg-green-600 w-8' 
+                      ? 'bg-blue-600 w-8' 
                       : 'bg-gray-300 dark:bg-gray-600'
                   }`}
                   aria-label={`Go to fact ${index + 1}`}
@@ -157,7 +157,7 @@ export default function Home() {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
-            SDG 11 in Action
+            SDG 9 in Action
           </h2>
 
           {/* Filter Bar */}
@@ -168,7 +168,7 @@ export default function Home() {
                 onClick={() => handleFilter(filter)}
                 className={`px-6 py-2 rounded-full font-medium transition-all ${
                   activeFilter === filter
-                    ? 'bg-green-600 text-white shadow-lg'
+                    ? 'bg-blue-600 text-white shadow-lg'
                     : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
                 }`}
               >
@@ -180,7 +180,7 @@ export default function Home() {
           {/* Loading State */}
           {loading && (
             <div className="text-center py-12">
-              <div className="inline-block w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin" />
+              <div className="inline-block w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
             </div>
           )}
 
@@ -224,7 +224,7 @@ export default function Home() {
                         href={card.linkUrl}
                         target={card.linkUrl.startsWith('http') ? '_blank' : '_self'}
                         rel={card.linkUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="inline-flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors"
+                        className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
                       >
                         {card.category === 'video' ? (
                           <>
@@ -263,24 +263,24 @@ export default function Home() {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-900 to-green-900 text-white">
+      <section className="py-16 bg-gradient-to-br from-indigo-900 to-blue-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Urban Impact by the Numbers
+            Innovation Impact by the Numbers
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: '4.4B', label: 'People in Cities', suffix: '' },
-              { number: '68', label: 'Population in Cities by 2050', suffix: '%' },
-              { number: '80', label: 'Global GDP from Cities', suffix: '%' },
-              { number: '70', label: 'CO2 Emissions from Cities', suffix: '%' },
+              { number: '2.6B', label: 'People Lack Internet Access', suffix: '' },
+              { number: '17', label: 'Manufacturing Share of GDP', suffix: '%' },
+              { number: '1.3B', label: 'Jobs in Manufacturing Sector', suffix: '' },
+              { number: '90', label: 'of R&D Spending in High-Income Countries', suffix: '%' },
             ].map((stat, index) => (
               <div
                 key={index}
                 className="text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-5xl sm:text-6xl font-bold text-green-400 mb-2">
+                <div className="text-5xl sm:text-6xl font-bold text-blue-400 mb-2">
                   {stat.number}{stat.suffix}
                 </div>
                 <div className="text-lg text-gray-200">{stat.label}</div>
@@ -294,15 +294,15 @@ export default function Home() {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Join the Movement
+            Join the Innovation Movement
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Discover how you can contribute to building sustainable cities and communities worldwide
+            Discover how innovation and infrastructure are transforming industries and creating opportunities worldwide
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/gallery"
-              className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
             >
               Explore Gallery
             </a>

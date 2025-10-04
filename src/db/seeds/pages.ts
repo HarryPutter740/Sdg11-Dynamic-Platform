@@ -4,107 +4,336 @@ import { pages } from '@/db/schema';
 async function main() {
     const samplePages = [
         {
-            slug: 'privacy-policy',
-            title: 'Privacy Policy',
-            subtitle: 'How we collect, use, and protect your data',
-            content: `At SDG 11 Sustainable Cities, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you visit our website or use our services.
+            slug: 'about',
+            title: 'About SDG 09: Industry, Innovation and Infrastructure',
+            subtitle: 'Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation',
+            content: `# About SDG 09: Industry, Innovation and Infrastructure
 
-**Data Collection**
-We collect information you provide directly to us, such as when you create an account, subscribe to our newsletter, or contact us. This may include your name, email address, and any messages you send us. We also automatically collect certain information about your device and usage patterns through cookies and similar technologies.
+## The Challenge
 
-**Use of Information**
-We use your information to provide and improve our services, communicate with you about sustainable city initiatives, send newsletters and updates, respond to your inquiries, and ensure the security of our platform. We may also use aggregated, non-personally identifiable information for research and analytics purposes.
+Sustainable Development Goal 9 focuses on building resilient infrastructure, promoting inclusive and sustainable industrialization, and fostering innovation. This goal is fundamental to economic growth, job creation, and improving living standards worldwide.
 
-**Data Protection and Security**
-We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your data is stored on secure servers and transmitted using encryption protocols.
+## Key Targets
 
-**Cookies and Tracking**
-Our website uses cookies to enhance your browsing experience, remember your preferences, and analyze website traffic. You can control cookie settings through your browser preferences, though some features may not function properly if cookies are disabled.
+### Infrastructure Development
+- Develop quality, reliable, sustainable, and resilient infrastructure
+- Increase access to information and communications technology
+- Provide universal and affordable access to the internet
 
-**Third-Party Services**
-We may use third-party services for analytics, payment processing, or other functionalities. These services have their own privacy policies, and we encourage you to review them.
+### Industrialization
+- Promote inclusive and sustainable industrialization
+- Significantly raise industry's share of employment and GDP
+- Increase the access of small-scale industrial enterprises to financial services
 
-**Your Rights**
-Under GDPR and other applicable laws, you have the right to access, correct, delete, or port your personal data. You may also object to certain processing activities or withdraw consent where applicable.
+### Innovation and Research
+- Enhance scientific research and upgrade technological capabilities
+- Encourage innovation and substantially increase research and development spending
+- Support domestic technology development and innovation
 
-**Contact Us**
-If you have questions about this Privacy Policy or our data practices, please contact us at privacy@sdg11cities.org.`,
-            metaDescription: 'Learn about our privacy practices and how we protect your personal information on our sustainable cities platform.',
-            metaKeywords: 'privacy policy, data protection, GDPR, personal information, cookies',
+## Global Impact
+
+Infrastructure investment has far-reaching impacts on productivity, income distribution, and economic growth. Quality infrastructure creates jobs, increases productivity, and provides access to markets and opportunities. Innovation drives economic growth and helps address global challenges like climate change, food security, and healthcare.
+
+## Success Stories
+
+Countries that have invested heavily in infrastructure and innovation have seen remarkable economic transformation. South Korea's investment in research and development helped it become a global technology leader. China's infrastructure development has lifted millions out of poverty and connected remote regions to economic opportunities.
+
+## How You Can Contribute
+
+### Individuals
+- Support businesses that prioritize sustainable practices
+- Advocate for infrastructure investment in your community
+- Pursue education and careers in STEM fields
+- Use technology responsibly and efficiently
+
+### Organizations
+- Invest in research and development
+- Adopt sustainable manufacturing practices
+- Support innovation ecosystems and startups
+- Collaborate with universities and research institutions
+
+### Governments
+- Develop comprehensive infrastructure strategies
+- Create policies that support innovation
+- Invest in education and skills development
+- Foster public-private partnerships
+
+## The Future
+
+Achieving SDG 9 requires unprecedented collaboration between governments, businesses, and civil society. By building resilient infrastructure, promoting sustainable industrialization, and fostering innovation, we can create a more prosperous and sustainable future for all.
+
+Together, we can build the foundation for economic growth that leaves no one behind while protecting our planet for future generations.`,
+            metaDescription: 'Learn about SDG 09: Industry, Innovation and Infrastructure. Discover how building resilient infrastructure, promoting sustainable industrialization, and fostering innovation can drive global development.',
+            metaKeywords: 'SDG 09, infrastructure development, sustainable industrialization, innovation, economic growth, technology, research and development, sustainable development goals',
             published: true,
             createdAt: new Date('2024-01-15').toISOString(),
             updatedAt: new Date('2024-01-15').toISOString(),
         },
         {
-            slug: 'about',
-            title: 'About SDG 11: Sustainable Cities and Communities',
-            subtitle: 'Building inclusive, safe, resilient and sustainable cities',
-            content: `Sustainable Development Goal 11 aims to make cities and human settlements inclusive, safe, resilient, and sustainable. As the world becomes increasingly urbanized, with more than half of the global population now living in cities, the importance of sustainable urban development has never been greater.
+            slug: 'privacy-policy',
+            title: 'Privacy Policy',
+            subtitle: 'How we collect, use, and protect your data',
+            content: `# Privacy Policy
 
-**The Challenge**
-Cities consume 78% of global energy and produce more than 70% of global CO2 emissions, yet they occupy less than 2% of the Earth's surface. Rapid urbanization has led to numerous challenges including inadequate housing, strained infrastructure, pollution, and social inequality. By 2050, it's estimated that 68% of the world's population will live in urban areas.
+*Last updated: January 15, 2024*
 
-**Our Mission**
-This platform serves as a hub for information, resources, and inspiration related to sustainable urban development. We showcase innovative solutions, best practices, and success stories from cities around the world that are working towards achieving SDG 11 targets.
+## Introduction
 
-**Key Targets**
-SDG 11 encompasses several specific targets including ensuring access to adequate housing, developing sustainable transport systems, enhancing inclusive urbanization, protecting cultural and natural heritage, reducing environmental impact, and providing universal access to safe, inclusive, and accessible green spaces.
+Welcome to the SDG 09 Innovation Platform. We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you use our platform dedicated to promoting industry, innovation, and infrastructure development.
 
-**Success Stories**
-Cities worldwide are implementing innovative solutions: Copenhagen's carbon-neutral goals, Singapore's smart city initiatives, Medellín's urban transformation through public transportation and green spaces, and Barcelona's superblocks reducing traffic and pollution.
+## Information We Collect
 
-**How You Can Contribute**
-Whether you're a city planner, policymaker, business leader, or concerned citizen, there are many ways to support sustainable urban development. Join our community to access resources, share experiences, and collaborate on solutions that make cities more livable for everyone.
+### Information You Provide
+- Account registration details (name, email address, organization)
+- Profile information related to your work in industry and innovation
+- Content you submit (research papers, project proposals, comments)
+- Communication preferences and feedback
 
-**Global Impact**
-Achieving SDG 11 is crucial for meeting other Sustainable Development Goals. Sustainable cities drive economic growth, reduce inequality, combat climate change, and improve quality of life for billions of people worldwide.`,
-            metaDescription: 'Discover the United Nations Sustainable Development Goal 11 focused on making cities inclusive, safe, resilient and sustainable.',
-            metaKeywords: 'SDG 11, sustainable cities, urban development, United Nations, sustainable development goals',
+### Information We Collect Automatically
+- Device information and browser type
+- IP address and location data
+- Usage patterns and platform interactions
+- Cookies and similar tracking technologies
+
+## How We Use Your Information
+
+### Primary Uses
+- Provide and improve our SDG 09 innovation platform services
+- Connect you with relevant industrial and infrastructure projects
+- Send updates about innovation opportunities and research findings
+- Facilitate collaboration between researchers, industry professionals, and policymakers
+
+### Communication
+- Platform notifications and updates
+- Newsletter about SDG 09 progress and initiatives
+- Research collaboration opportunities
+- Technical support and customer service
+
+## Data Protection and Security
+
+We implement robust security measures to protect your personal information:
+- End-to-end encryption for sensitive communications
+- Regular security audits and updates
+- Secure data storage with limited access controls
+- GDPR and international data protection compliance
+
+## Cookies Policy
+
+We use cookies to enhance your experience on our platform:
+- **Essential cookies**: Required for platform functionality
+- **Analytics cookies**: Help us understand platform usage and improve services
+- **Preference cookies**: Remember your settings and customizations
+
+You can manage your cookie preferences through your browser settings.
+
+## Data Sharing and Third Parties
+
+We do not sell your personal information. We may share data with:
+- Research institutions for collaborative SDG 09 projects
+- Technology partners who help operate our platform
+- Legal authorities when required by law
+- Third-party service providers under strict data protection agreements
+
+## Your Rights
+
+Under GDPR and other data protection laws, you have the right to:
+- Access your personal data
+- Correct inaccurate information
+- Delete your account and data
+- Restrict processing of your data
+- Data portability
+- Object to certain uses of your data
+
+## International Data Transfers
+
+As we support global SDG 09 initiatives, your data may be transferred internationally. We ensure appropriate safeguards are in place for all data transfers.
+
+## Children's Privacy
+
+Our platform is not intended for children under 16. We do not knowingly collect personal information from children.
+
+## Changes to This Policy
+
+We may update this Privacy Policy to reflect changes in our practices or legal requirements. We will notify you of significant changes via email or platform notifications.
+
+## Contact Information
+
+For questions about this Privacy Policy or your personal data, contact us at:
+
+**Email**: privacy@sdg09innovation.org  
+**Address**: SDG 09 Innovation Platform Data Protection Office  
+**Response Time**: We aim to respond within 30 days
+
+## Data Protection Officer
+
+Our Data Protection Officer can be reached at: dpo@sdg09innovation.org
+
+By using our platform, you acknowledge that you have read and understood this Privacy Policy.`,
+            metaDescription: 'Privacy Policy for SDG 09 Innovation Platform. Learn how we collect, use, and protect your personal data while promoting industry, innovation, and infrastructure development.',
+            metaKeywords: 'privacy policy, data protection, GDPR, SDG 09, innovation platform, personal information, cookies, data security',
             published: true,
-            createdAt: new Date('2024-01-10').toISOString(),
-            updatedAt: new Date('2024-01-10').toISOString(),
+            createdAt: new Date('2024-01-20').toISOString(),
+            updatedAt: new Date('2024-01-20').toISOString(),
         },
         {
             slug: 'terms-of-service',
             title: 'Terms of Service',
             subtitle: 'Terms and conditions for using our platform',
-            content: `Welcome to the SDG 11 Sustainable Cities platform. By accessing or using our website and services, you agree to be bound by these Terms of Service. Please read them carefully before using our platform.
+            content: `# Terms of Service
 
-**Acceptance of Terms**
-By accessing this website, you accept these terms and conditions in full. If you disagree with any part of these terms, you must not use our website or services.
+*Last updated: January 20, 2024*
 
-**Use License**
-Permission is granted to temporarily access and use our platform for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not modify or copy the materials, use the materials for commercial purposes, or remove any copyright or proprietary notations.
+## Agreement to Terms
 
-**User Responsibilities**
-Users are responsible for maintaining the confidentiality of their account information, ensuring all information provided is accurate and up-to-date, using the platform in compliance with applicable laws and regulations, and not engaging in any activity that could harm the platform or other users.
+By accessing and using the SDG 09 Innovation Platform, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this platform.
 
-**Content Guidelines**
-Users may contribute content subject to our review and approval. All user-generated content must be original, appropriate, and relevant to sustainable urban development. We reserve the right to remove any content that violates these guidelines or our community standards.
+## Platform Description
 
-**Intellectual Property Rights**
-The content, organization, graphics, design, and other matters related to this website are protected under applicable copyrights and other proprietary laws. Copying, redistributing, or republishing any content without our express written permission is prohibited.
+The SDG 09 Innovation Platform is dedicated to advancing Sustainable Development Goal 9: Industry, Innovation and Infrastructure. Our platform facilitates collaboration, knowledge sharing, and project development in the areas of:
+- Infrastructure development and resilience
+- Sustainable industrialization
+- Innovation and technology transfer
+- Research and development initiatives
 
-**Disclaimers**
-The information on this website is provided on an 'as is' basis. We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of the information. Use of any information is solely at your own risk.
+## Use License
 
-**Limitation of Liability**
-In no event shall SDG 11 Sustainable Cities or its suppliers be liable for any damages arising out of the use or inability to use the materials on our website, even if we have been notified orally or in writing of the possibility of such damage.
+### Permitted Uses
+- Access and use the platform for lawful SDG 09-related activities
+- Share research findings and industrial innovation content
+- Collaborate on infrastructure and innovation projects
+- Participate in discussions and knowledge exchange
 
-**Privacy**
-Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your information.
+### Restrictions
+You may not:
+- Use the platform for any illegal or unauthorized purpose
+- Violate any international, federal, provincial, or state regulations or laws
+- Transmit malicious code, viruses, or harmful content
+- Attempt to gain unauthorized access to our systems
+- Impersonate other users or provide false information
 
-**Modifications**
-We may revise these terms at any time without notice. By using this website, you agree to be bound by the current version of these Terms of Service.
+## User Responsibilities
 
-**Contact Information**
-For questions about these Terms of Service, please contact us at legal@sdg11cities.org.`,
-            metaDescription: 'Read our terms of service and understand the conditions for using our sustainable cities platform.',
-            metaKeywords: 'terms of service, terms and conditions, legal, user agreement',
+### Account Security
+- Maintain the confidentiality of your account credentials
+- Notify us immediately of any unauthorized account use
+- Ensure all account information is accurate and current
+
+### Content Guidelines
+When sharing content related to industrial innovation:
+- Ensure content is relevant to SDG 09 objectives
+- Respect intellectual property rights
+- Provide accurate and verified information
+- Maintain professional standards in communications
+
+## Intellectual Property Rights
+
+### Your Content
+- You retain ownership of content you create and share
+- You grant us a license to use your content for platform operations
+- You represent that you have the right to share the content you post
+
+### Platform Content
+- Our platform content is protected by copyright and trademark laws
+- You may not reproduce or distribute our proprietary content without permission
+- Research papers and reports may have specific licensing terms
+
+### Third-Party Content
+- Respect copyright and intellectual property of third-party materials
+- Obtain proper permissions before sharing external content
+- Cite sources appropriately in research and publications
+
+## Research and Development Collaboration
+
+### Project Participation
+- Collaborative projects may have additional terms and agreements
+- Intellectual property arrangements will be specified for each project
+- Data sharing agreements may apply to research collaborations
+
+### Publication and Attribution
+- Proper attribution required for shared research and findings
+- Follow academic and industry standards for citations
+- Respect confidentiality agreements in ongoing projects
+
+## Disclaimers
+
+### Platform Availability
+- We strive for continuous platform availability but cannot guarantee 100% uptime
+- Maintenance and updates may temporarily affect service
+- We reserve the right to modify or discontinue features
+
+### Content Accuracy
+- User-generated content reflects individual opinions and research
+- We do not endorse all content shared on the platform
+- Users should verify information independently
+
+### Investment and Business Decisions
+- Platform content is for informational purposes only
+- We do not provide financial or business advice
+- Users should conduct due diligence for business decisions
+
+## Limitation of Liability
+
+To the maximum extent permitted by law:
+- We are not liable for indirect, incidental, or consequential damages
+- Our total liability is limited to the amount you paid for platform access
+- We disclaim warranties regarding platform performance and content accuracy
+
+## Privacy and Data Protection
+
+Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your personal information in compliance with GDPR and other applicable data protection laws.
+
+## Termination
+
+### Account Termination
+We may terminate or suspend your account for:
+- Violation of these Terms of Service
+- Illegal or inappropriate behavior
+- Extended periods of inactivity
+- Security concerns
+
+### Effect of Termination
+Upon termination:
+- Your access to the platform will be discontinued
+- Your content may be removed at our discretion
+- Certain provisions of these terms will survive termination
+
+## International Use
+
+Our platform serves users globally in support of SDG 09 initiatives. Users are responsible for compliance with local laws and regulations in their jurisdiction.
+
+## Changes to Terms
+
+We may update these Terms of Service to reflect:
+- Changes in legal requirements
+- Platform feature updates
+- Industry best practices
+- User feedback and platform evolution
+
+We will notify users of significant changes via email or platform notifications.
+
+## Governing Law
+
+These Terms of Service are governed by international law and the laws of the jurisdiction where our platform is operated, without regard to conflict of law principles.
+
+## Contact Information
+
+For questions about these Terms of Service, please contact us:
+
+**Email**: legal@sdg09innovation.org  
+**Address**: SDG 09 Innovation Platform Legal Department  
+**Response Time**: We aim to respond within 15 business days
+
+## Dispute Resolution
+
+We encourage users to contact us directly to resolve any disputes. For formal disputes, we prefer mediation and arbitration over litigation when possible.
+
+By using our platform, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.`,
+            metaDescription: 'Terms of Service for SDG 09 Innovation Platform. Understand the terms and conditions for using our platform dedicated to industry, innovation, and infrastructure development.',
+            metaKeywords: 'terms of service, user agreement, SDG 09, innovation platform, industrial collaboration, intellectual property, platform rules',
             published: true,
-            createdAt: new Date('2024-01-20').toISOString(),
-            updatedAt: new Date('2024-01-20').toISOString(),
-        },
+            createdAt: new Date('2024-01-25').toISOString(),
+            updatedAt: new Date('2024-01-25').toISOString(),
+        }
     ];
 
     await db.insert(pages).values(samplePages);

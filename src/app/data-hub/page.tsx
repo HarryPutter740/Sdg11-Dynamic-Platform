@@ -145,16 +145,16 @@ export default function DataHubPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="relative py-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 text-white rounded-full mb-6 animate-fade-in-up">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6 animate-fade-in-up">
             <BarChart3 className="w-8 h-8" />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             {t('data_hub_title') || 'Interactive Data Hub'}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {t('data_hub_description') || 'Explore comprehensive data visualizations on urban sustainability, population trends, and SDG 11 progress worldwide'}
+            {t('data_hub_description') || 'Explore comprehensive data visualizations on industrial innovation, infrastructure development, and SDG 9 progress worldwide'}
           </p>
         </div>
       </section>
@@ -164,24 +164,24 @@ export default function DataHubPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {[
-              { value: '4.4B', label: 'Urban Population', change: '+2.3%', trend: 'up' },
-              { value: '828M', label: 'Slum Dwellers', change: '-1.2%', trend: 'down' },
-              { value: '70%', label: 'Global CO2 Emissions', change: '+0.8%', trend: 'up' },
-              { value: '68%', label: 'Urban by 2050', change: '+1.5%', trend: 'up' },
+              { value: '$2.4T', label: 'Global R&D Investment', change: '+8.5%', trend: 'up' },
+              { value: '2.6B', label: 'People Lack Internet', change: '-12%', trend: 'down' },
+              { value: '17%', label: 'Manufacturing of GDP', change: '+2.1%', trend: 'up' },
+              { value: '90%', label: 'R&D in High-Income', change: '+1.8%', trend: 'up' },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg animate-fade-in-up"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-700 dark:text-gray-300 font-medium mb-2">
                   {stat.label}
                 </div>
                 <div className={`flex items-center gap-1 text-sm ${
-                  stat.trend === 'up' ? 'text-red-600' : 'text-green-600'
+                  stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
                 }`}>
                   {stat.trend === 'up' ? '↑' : '↓'}
                   <span>{stat.change}</span>
@@ -242,18 +242,18 @@ export default function DataHubPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-green-600 to-blue-600 text-white">
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Want to Explore More Data?
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Access comprehensive reports and detailed analysis on sustainable urban development
+            Access comprehensive reports and detailed analysis on industrial innovation and infrastructure development
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/gallery"
-              className="px-8 py-3 bg-white text-green-600 hover:bg-gray-100 font-semibold rounded-lg transition-colors"
+              className="px-8 py-3 bg-white text-blue-600 hover:bg-gray-100 font-semibold rounded-lg transition-colors"
             >
               View Gallery
             </a>

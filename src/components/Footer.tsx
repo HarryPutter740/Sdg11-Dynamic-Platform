@@ -53,10 +53,10 @@ export default function Footer() {
           {/* Info Section */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              {t('footer_about') || 'SDG 11: Sustainable Cities and Communities'}
+              {t('footer_about') || 'SDG 09: Industry, Innovation and Infrastructure'}
             </h3>
             <p className="text-gray-300 mb-6">
-              Building a better urban future for everyone through inclusive, safe, resilient, and sustainable development.
+              Building resilient infrastructure, promoting inclusive and sustainable industrialization, and fostering innovation for a better future.
             </p>
             <div className="flex space-x-4 mb-6">
               <Link href="/" className="text-gray-300 hover:text-white transition-colors">
@@ -143,7 +143,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/20 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-gray-300 text-sm">
-            {t('footer_copyright') || '© 2024 SDG 11 Project | Building Sustainable Cities'}
+            {t('footer_copyright') || '© 2024 SDG 09 Initiative | Building Innovation and Infrastructure'}
           </p>
           <button
             onClick={handleShare}

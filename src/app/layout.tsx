@@ -21,29 +21,29 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "SDG 11 - Sustainable Cities and Communities",
-  description: "Creating inclusive, safe, resilient and sustainable urban spaces for everyone. Explore stories, data, and insights on sustainable urban development.",
-  keywords: ["SDG 11", "sustainable cities", "urban development", "sustainable communities", "UN goals", "urban planning"],
-  authors: [{ name: "SDG 11 Team" }],
+  title: "SDG 09 - Industry, Innovation and Infrastructure",
+  description: "Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation. Explore stories, data, and insights on industrial development and technological advancement.",
+  keywords: ["SDG 09", "industry", "innovation", "infrastructure", "sustainable industrialization", "UN goals", "technology development", "research and development"],
+  authors: [{ name: "SDG 09 Team" }],
   openGraph: {
-    title: "SDG 11 - Sustainable Cities and Communities",
-    description: "Creating inclusive, safe, resilient and sustainable urban spaces for everyone",
+    title: "SDG 09 - Industry, Innovation and Infrastructure",
+    description: "Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation",
     type: "website",
-    url: "https://sdg11.org",
-    siteName: "SDG 11",
+    url: "https://sdg09innovation.org",
+    siteName: "SDG 09",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "SDG 11 - Sustainable Cities and Communities",
+        alt: "SDG 09 - Industry, Innovation and Infrastructure",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SDG 11 - Sustainable Cities and Communities",
-    description: "Creating inclusive, safe, resilient and sustainable urban spaces for everyone",
+    title: "SDG 09 - Industry, Innovation and Infrastructure",
+    description: "Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation",
     images: ["/og-image.jpg"],
   },
   robots: {

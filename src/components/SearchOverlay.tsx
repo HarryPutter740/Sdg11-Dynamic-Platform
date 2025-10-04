@@ -220,7 +220,7 @@ export default function SearchOverlay() {
               to close
             </span>
           </div>
-          <span>Powered by SDG 11 Search</span>
+          <span>Powered by SDG 9 Search</span>
         </div>
       </div>
     </div>
